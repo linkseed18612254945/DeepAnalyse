@@ -61,22 +61,62 @@ User Input (Event / Topic)
 - Python 3.12+
 - Node.js 20+
 - API keys for your chosen LLM and search provider
+- Supported platforms: **Windows**, **macOS**, **Linux**
 
-### 1. Backend Setup
+### One-command setup
+
+Cross-platform startup scripts are provided in the `scripts/` directory. They create a virtual environment, install all dependencies, and print next-step instructions.
+
+**macOS / Linux:**
+
+```bash
+bash scripts/start.sh
+```
+
+**Windows (Command Prompt):**
+
+```cmd
+scripts\start.bat
+```
+
+**Windows (PowerShell):**
+
+```powershell
+.\scripts\start.ps1
+```
+
+### Manual setup
+
+#### 1. Backend
 
 ```bash
 cd backend
-cp .env.example .env
-# Edit .env with your API keys
+```
 
-python -m venv .venv
-source .venv/bin/activate
+Copy the env template and fill in your API keys:
+
+| OS | Command |
+|----|---------|
+| macOS / Linux | `cp .env.example .env` |
+| Windows (cmd) | `copy .env.example .env` |
+| Windows (PowerShell) | `Copy-Item .env.example .env` |
+
+Create and activate a virtual environment:
+
+| OS | Create venv | Activate |
+|----|-------------|----------|
+| macOS / Linux | `python3 -m venv .venv` | `source .venv/bin/activate` |
+| Windows (cmd) | `python -m venv .venv` | `.venv\Scripts\activate.bat` |
+| Windows (PowerShell) | `python -m venv .venv` | `.venv\Scripts\Activate.ps1` |
+
+Install dependencies and start the server:
+
+```bash
 pip install -r requirements.txt
-
 uvicorn backend.app.main:app --reload
 ```
 
-### 2. Frontend Setup
+#### 2. Frontend
 
 ```bash
 cd frontend
@@ -84,16 +124,29 @@ npm install
 npm run dev
 ```
 
-### 3. Docker Compose (Full Stack)
+#### 3. Docker Compose (Full Stack)
+
+Copy the env template:
+
+| OS | Command |
+|----|---------|
+| macOS / Linux | `cp backend/.env.example backend/.env` |
+| Windows (cmd) | `copy backend\.env.example backend\.env` |
+| Windows (PowerShell) | `Copy-Item backend\.env.example backend\.env` |
+
+Edit `backend/.env` with your API keys, then:
 
 ```bash
-cp backend/.env.example backend/.env
-# Edit backend/.env with your API keys
-
 docker compose up --build
 ```
 
 The frontend will be available at `http://localhost:5173` and the API at `http://localhost:8000`.
+
+### Windows-specific notes
+
+- **WeasyPrint** (PDF generation) requires GTK libraries on Windows. See [WeasyPrint Windows installation](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#windows). PDF export is optional — Markdown, JSON, and DOCX work without extra dependencies.
+- If using **PowerShell** and script execution is restricted, run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` first.
+- All file paths are handled with `pathlib`, so forward-slash and backslash paths both work.
 
 ## API Endpoints
 
@@ -159,6 +212,10 @@ DeepAnalyse/
 │   │   └── main.tsx
 │   ├── package.json
 │   └── vite.config.ts
+├── scripts/
+│   ├── start.sh                  # macOS / Linux setup
+│   ├── start.bat                 # Windows (cmd) setup
+│   └── start.ps1                 # Windows (PowerShell) setup
 ├── docker-compose.yml
 ├── Dockerfile
 └── README.md

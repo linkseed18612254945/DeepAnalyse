@@ -7,8 +7,6 @@ formats from an AnalysisSession.
 from __future__ import annotations
 
 import logging
-import os
-from datetime import datetime
 from pathlib import Path
 
 from backend.app.core.config import settings
@@ -138,7 +136,7 @@ async def save_report(
     Returns a dict of format -> file path.
     """
 
-    output_dir = Path(settings.reports_output_dir) / session_id
+    output_dir = settings.reports_output_path / session_id
     output_dir.mkdir(parents=True, exist_ok=True)
     paths: dict[str, str] = {}
 

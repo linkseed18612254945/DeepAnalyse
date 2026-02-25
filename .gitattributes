@@ -1,0 +1,15 @@
+# Enforce consistent line endings across Windows / macOS / Linux.
+* text=auto
+
+# Force LF for shell scripts even on Windows (Git Bash, WSL).
+*.sh text eol=lf
+
+# Force CRLF for Windows-specific scripts.
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files — do not touch.
+*.png binary
+*.jpg binary
+*.pdf binary
+*.docx binary
