@@ -9,7 +9,7 @@ from typing import Any
 import anthropic
 import openai
 
-from backend.app.core.config import settings
+from .config import settings
 
 logger = logging.getLogger(__name__)
 

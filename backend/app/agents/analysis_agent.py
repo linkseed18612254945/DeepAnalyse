@@ -9,8 +9,8 @@ from __future__ import annotations
 
 import logging
 
-from backend.app.core.llm import chat_completion_json
-from backend.app.core.models import (
+from ..core.llm import chat_completion_json
+from ..core.models import (
     AnalysisResult,
     ActorProfile,
     CausalLink,

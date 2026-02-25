@@ -10,9 +10,9 @@ from __future__ import annotations
 import logging
 from typing import AsyncIterator
 
-from backend.app.core.config import settings
-from backend.app.core.llm import chat_completion_json
-from backend.app.core.models import (
+from ..core.config import settings
+from ..core.llm import chat_completion_json
+from ..core.models import (
     Entity,
     EventFraming,
     Relationship,
@@ -20,7 +20,7 @@ from backend.app.core.models import (
     RetrievalRoundResult,
     Source,
 )
-from backend.app.retrieval.search import web_search
+from .search import web_search
 
 logger = logging.getLogger(__name__)
 

@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import logging
 
-from backend.app.agents.analysis_agent import run_analysis
-from backend.app.agents.framing_agent import frame_event
-from backend.app.core.models import AnalysisSession, AnalysisStatus
-from backend.app.knowledge.graph import KnowledgeGraph
-from backend.app.report.generator import generate_report, save_report
-from backend.app.retrieval.engine import run_retrieval
+from ..agents.analysis_agent import run_analysis
+from ..agents.framing_agent import frame_event
+from ..core.models import AnalysisSession, AnalysisStatus
+from ..knowledge.graph import KnowledgeGraph
+from ..report.generator import generate_report, save_report
+from ..retrieval.engine import run_retrieval
 
 logger = logging.getLogger(__name__)
 

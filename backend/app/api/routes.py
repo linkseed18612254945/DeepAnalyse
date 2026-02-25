@@ -9,10 +9,10 @@ from typing import Any
 from fastapi import APIRouter, BackgroundTasks, HTTPException
 from sse_starlette.sse import EventSourceResponse
 
-from backend.app.api.pipeline import run_full_pipeline
-from backend.app.api.schemas import AnalysisRequest, AnalysisStatusResponse, FollowUpRequest
-from backend.app.core.models import AnalysisSession, AnalysisStatus
-from backend.app.report.generator import render_markdown
+from .pipeline import run_full_pipeline
+from .schemas import AnalysisRequest, AnalysisStatusResponse, FollowUpRequest
+from ..core.models import AnalysisSession, AnalysisStatus
+from ..report.generator import render_markdown
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

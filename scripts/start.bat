@@ -44,7 +44,7 @@ echo.
 echo   Start the backend:
 echo     cd backend
 echo     .venv\Scripts\activate.bat
-echo     uvicorn backend.app.main:app --reload
+echo     uvicorn app.main:app --reload
 echo.
 echo   Start the frontend (in a separate terminal):
 echo     cd frontend
