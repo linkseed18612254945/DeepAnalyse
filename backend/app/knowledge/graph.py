@@ -10,7 +10,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from backend.app.core.models import (
+from ..core.models import (
     ConfidenceLevel,
     Entity,
     Relationship,

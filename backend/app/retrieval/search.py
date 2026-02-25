@@ -11,8 +11,8 @@ from urllib.parse import urlparse
 
 import httpx
 
-from backend.app.core.config import settings
-from backend.app.core.models import Source, SourceTier
+from ..core.config import settings
+from ..core.models import Source, SourceTier
 
 logger = logging.getLogger(__name__)
 

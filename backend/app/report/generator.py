@@ -9,9 +9,9 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from backend.app.core.config import settings
-from backend.app.core.llm import chat_completion
-from backend.app.core.models import (
+from ..core.config import settings
+from ..core.llm import chat_completion
+from ..core.models import (
     AnalysisResult,
     AnalysisSession,
     EventFraming,
